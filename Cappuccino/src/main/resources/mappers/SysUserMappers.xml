@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunwei.dao.SysUserDao">
+    <cache type="com.cappuccino.cache.RedisCache"/>
+
+	<select id="getUserInfo" resultType="int">
+		select count(id) from sys_users where username=#{user_name} and password=#{user_password}
+	</select>
+	
+	<select id="getAllUserInfo" resultType="com.cappuccino.entity.SysUserEntity">
+		select * from sys_users 
+	</select>
+    
+	
+</mapper>
